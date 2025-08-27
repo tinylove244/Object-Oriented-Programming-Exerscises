@@ -9,6 +9,7 @@ private: // encapsulation
     string accountNumber;
     string ownerName;  // extension request: ownerName attribute
     double balance;
+    const double minBalance = 100000; // extension request: minBalance attribute
 public:
     // default constructor
     Account() {}
@@ -44,8 +45,8 @@ public:
 
     // method to withdraw money from the account (maintains a minimum balance of 100000)
     void withdraw(double amount) {
-        if (amount > balance - 100000) {
-            cout << "Insufficient balance!" << endl;
+        if (amount > balance - minBalance) {
+            cout << "Insufficient balance!" << endl;  
         } else {
             balance -= amount;
             cout << "Withdrew: " << fixed << setprecision(2) << amount << " VND" << endl;
@@ -90,3 +91,4 @@ int main() {
 
     return 0;
 }
+
